@@ -1,0 +1,466 @@
+
+/* ==========================================
+   CAMPUS CONNECT - DAY 05
+   Complete Responsive Stylesheet
+   ========================================== */
+
+/* 1. DESIGN TOKENS */
+:root {
+    --color-bg: #101713;
+    --color-surface: #19231d;
+    --color-surface-light: #222f27;
+    --color-primary: #a3e635;
+    --color-primary-dark: #84cc16;
+    --color-text: #f1f5f0;
+    --color-muted: #aab8ad;
+    --color-border: rgba(255, 255, 255, 0.12);
+
+    --font-heading: 'Manrope', sans-serif;
+    --font-body: 'DM Sans', sans-serif;
+
+    --space-xs: 0.5rem;
+    --space-sm: 1rem;
+    --space-md: 1.5rem;
+    --space-lg: 2rem;
+    --space-xl: 3rem;
+
+    --content-width: 70rem;
+    --radius-sm: 0.5rem;
+    --radius-md: 1rem;
+    --radius-lg: 1.5rem;
+
+    --shadow-card: 0 0.5rem 1.5rem rgba(0, 0, 0, 0.2);
+}
+
+/* 2. RESET */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+    font-size: 16px;
+}
+
+body {
+    min-height: 100vh;
+    background: var(--color-bg);
+    color: var(--color-text);
+    font-family: var(--font-body);
+    line-height: 1.7;
+}
+
+/* 3. ELEMENT SELECTORS */
+h1, h2, h3, h4 {
+    font-family: var(--font-heading);
+    line-height: 1.2;
+    color: var(--color-text);
+}
+
+h1 {
+    font-size: clamp(2.3rem, 5vw, 4.5rem);
+}
+
+h2 {
+    font-size: clamp(1.7rem, 3vw, 2.5rem);
+}
+
+h3 {
+    font-size: 1.3rem;
+}
+
+p {
+    color: var(--color-muted);
+    margin-bottom: var(--space-sm);
+}
+
+a {
+    color: var(--color-primary);
+    text-decoration: none;
+    transition: 0.2s ease;
+}
+
+a:hover {
+    color: var(--color-primary-dark);
+}
+
+img {
+    max-width: 100%;
+    display: block;
+}
+
+button, input, textarea, select {
+    font: inherit;
+}
+
+/* 4. COMMON LAYOUT */
+.container {
+    width: min(90%, var(--content-width));
+    margin-inline: auto;
+}
+
+section {
+    padding: var(--space-xl) 0;
+}
+
+/* 5. HEADER AND NAVBAR */
+.site-header {
+    background: var(--color-surface);
+    border-bottom: 1px solid var(--color-border);
+    position: relative;
+    z-index: 10;
+}
+
+.navbar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: var(--space-md);
+    padding: 1.2rem 0;
+}
+
+.logo {
+    color: var(--color-primary);
+    font-family: var(--font-heading);
+    font-size: 1.3rem;
+    font-weight: 800;
+    white-space: nowrap;
+}
+
+.logo:hover {
+    color: var(--color-primary-dark);
+}
+
+.nav-links {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: var(--space-md);
+    list-style: none;
+}
+
+.nav-links a {
+    color: var(--color-text);
+    font-weight: 600;
+}
+
+.nav-links a:hover,
+.nav-links a.active {
+    color: var(--color-primary);
+}
+
+/* 6. HERO SECTION */
+.hero {
+    padding: clamp(4rem, 10vw, 8rem) 0;
+    text-align: center;
+    background: linear-gradient(
+        135deg,
+        var(--color-surface),
+        var(--color-bg)
+    );
+}
+
+.hero-content {
+    max-width: 65rem;
+}
+
+.hero-tag {
+    display: inline-block;
+    color: var(--color-primary);
+    font-size: 0.85rem;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+    margin-bottom: var(--space-lg);
+}
+
+.hero h1 {
+    max-width: 65rem;
+    margin: 0 auto var(--space-lg);
+}
+
+.hero p {
+    max-width: 48rem;
+    margin: 0 auto;
+    font-size: 1.1rem;
+}
+
+.highlight {
+    color: var(--color-primary);
+}
+
+.hero-actions {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: var(--space-sm);
+    margin-top: var(--space-lg);
+}
+
+/* 7. BUTTONS */
+.btn,
+.button {
+    display: inline-block;
+    padding: 0.85rem 1.6rem;
+    background: var(--color-primary);
+    color: #101713;
+    border: 1px solid var(--color-primary);
+    border-radius: var(--radius-sm);
+    font-weight: 700;
+    cursor: pointer;
+    transition: background 0.2s ease, transform 0.2s ease;
+}
+
+.btn:hover,
+.button:hover {
+    background: var(--color-primary-dark);
+    border-color: var(--color-primary-dark);
+    color: #101713;
+    transform: translateY(-2px);
+}
+
+.btn-outline {
+    background: transparent;
+    color: var(--color-primary);
+}
+
+.btn-outline:hover {
+    background: var(--color-primary);
+    color: #101713;
+}
+
+/* 8. SECTION HEADINGS */
+.section-title {
+    text-align: center;
+    margin-bottom: var(--space-sm);
+}
+
+.section-description {
+    max-width: 45rem;
+    margin: 0 auto var(--space-xl);
+    text-align: center;
+}
+
+/* 9. CARDS */
+.card-grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: var(--space-lg);
+}
+
+.card {
+    background: var(--color-surface);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-md);
+    padding: var(--space-lg);
+    box-shadow: var(--shadow-card);
+    transition: transform 0.2s ease, border-color 0.2s ease;
+}
+
+.card:hover {
+    transform: translateY(-5px);
+    border-color: var(--color-primary);
+}
+
+.card h3 {
+    color: var(--color-primary);
+    margin-bottom: var(--space-sm);
+}
+
+.card p {
+    margin-bottom: 0;
+}
+
+.card-icon {
+    font-size: 2rem;
+    margin-bottom: var(--space-sm);
+}
+
+/* 10. PAGE BANNERS */
+.page-banner {
+    padding: var(--space-xl) 0;
+    background: var(--color-surface);
+    text-align: center;
+}
+
+.page-banner h1 {
+    margin-bottom: var(--space-sm);
+}
+
+/* 11. CONTENT BOXES */
+.content-box {
+    background: var(--color-surface);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-md);
+    padding: var(--space-lg);
+    margin-block: var(--space-lg);
+}
+
+.content-box h2 {
+    margin-bottom: var(--space-sm);
+}
+
+.content-box p {
+    line-height: 1.8;
+}
+
+#join-us {
+    border-color: var(--color-primary);
+}
+
+/* 12. TABLES */
+.table-wrapper {
+    width: 100%;
+    overflow-x: auto;
+    margin-block: var(--space-lg);
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    background: var(--color-surface);
+}
+
+th, td {
+    padding: var(--space-sm);
+    border-bottom: 1px solid var(--color-border);
+    text-align: left;
+}
+
+th {
+    background: var(--color-surface-light);
+    color: var(--color-primary);
+}
+
+/* 13. FORMS */
+form {
+    display: grid;
+    gap: var(--space-sm);
+}
+
+label {
+    display: block;
+    color: var(--color-text);
+    font-weight: 600;
+    margin-bottom: 0.3rem;
+}
+
+input,
+textarea,
+select {
+    width: 100%;
+    padding: 0.8rem 1rem;
+    background: var(--color-bg);
+    color: var(--color-text);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-sm);
+    outline: none;
+}
+
+input:focus,
+textarea:focus,
+select:focus {
+    border-color: var(--color-primary);
+    outline: 2px solid rgba(163, 230, 53, 0.2);
+}
+
+textarea {
+    min-height: 8rem;
+    resize: vertical;
+}
+
+input[type="checkbox"],
+input[type="radio"] {
+    width: auto;
+    accent-color: var(--color-primary);
+}
+
+input[type="submit"],
+button[type="submit"] {
+    width: fit-content;
+    background: var(--color-primary);
+    color: #101713;
+    border: none;
+    padding: 0.8rem 1.5rem;
+    border-radius: var(--radius-sm);
+    font-weight: 700;
+    cursor: pointer;
+}
+
+/* 14. CONTACT LAYOUT */
+.contact-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: var(--space-lg);
+}
+
+/* 15. FOOTER */
+.site-footer {
+    background: var(--color-surface);
+    border-top: 1px solid var(--color-border);
+    padding: var(--space-xl) 0;
+    margin-top: var(--space-xl);
+    text-align: center;
+}
+
+.site-footer p {
+    margin: 0;
+}
+
+/* 16. DESCENDANT SELECTORS */
+.navbar .nav-links a {
+    transition: color 0.2s ease;
+}
+
+.content-box p {
+    line-height: 1.8;
+}
+
+/* 17. RESPONSIVE DESIGN */
+@media (max-width: 800px) {
+    .navbar {
+        flex-direction: column;
+        justify-content: center;
+        gap: var(--space-sm);
+    }
+
+    .card-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+}
+
+@media (max-width: 550px) {
+    html {
+        font-size: 15px;
+    }
+
+    .card-grid,
+    .contact-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .nav-links {
+        justify-content: center;
+        gap: 0.8rem;
+    }
+
+    .hero {
+        padding: 4rem 0;
+    }
+
+    .hero-actions {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .hero-actions .btn {
+        width: 100%;
+        max-width: 18rem;
+    }
+
+    .content-box,
+    .card {
+        padding: var(--space-md);
+    }
+}
